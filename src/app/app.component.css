@@ -1,0 +1,132 @@
+.terreta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  cursor: pointer;
+  width: 40px; /* Ajusta el tamaño según tus necesidades */
+  height: 40px; /* Ajusta el tamaño según tus necesidades */
+}
+
+.session {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.session a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.session a:hover {
+  color: orange;
+}
+
+/* Estilos para el formulario emergente */
+.form-popup {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 9;
+}
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+  max-width: 300px;
+}
+
+/* Estilos para los campos de entrada */
+.form-container input[type=text],
+.form-container input[type=password] {
+  width: calc(100% - 24px);
+  padding: 12px;
+  margin: 8px 0 20px 0;
+  border: 2px solid #9ec5de;
+  background: #f9f9f9;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Estilos cuando los campos de entrada están enfocados */
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
+  background-color: #e8e8e8;
+  outline: none;
+}
+
+/* Estilos para los botones */
+.form-container .btn {
+  background-color: #9ec5de;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+/* Estilos para el botón de "Cancelar" */
+.form-container .cancel {
+  background-color: #f44336;
+}
+
+/* Estilos para los botones cuando se pasan por encima */
+.form-container .btn:hover {
+  opacity: 1;
+}
+
+/* Estilos para el dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu ul li:hover {
+  background-color: #e8e8e8;
+}
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+.user-info {
+  display: flex; /* Utilizamos flexbox para alinear elementos verticalmente */
+  align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+}
+
+.user-icon {
+  width: 12px; /* Define el tamaño del icono */
+  height: 12px;
+  margin-right: 8px; /* Ajusta el espacio entre el icono y el nombre de usuario */
+}

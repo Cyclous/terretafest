@@ -1,0 +1,40 @@
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 35%;
+}
+
+.footer-links {
+  text-align: center;
+}
+
+.footer-links a {
+  color: white;
+  font-weight: bold;
+  margin: 10px 10px;
+}
+
+.admin-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoTerreta {
+  height: 220px;
+  width: 220px;
+}
+
+.social-icons img {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+}

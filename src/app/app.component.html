@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="terreta">
+    <img src="../assets/images/Terretafest.png" alt="LogoTerreta.png" />
+  </div>
+
+  <div class="session">
+    <!-- Si el usuario está logueado, mostrar el nombre de usuario y el dropdown menu -->
+    <div *ngIf="loggedInUsername; else loginRegister" (click)="toggleDropdown()">
+      <div class="user-info">
+        <span>{{ loggedInUsername }}</span>
+        <!-- Icono de logout -->
+        <span class="logout-icon" (click)="logout()">
+          <img src="../assets/icons/logout.png" alt="Logout">
+        </span>
+      </div>
+      <!-- Dropdown menu -->
+      <div *ngIf="showDropdown" class="dropdown-menu">
+        <ul>
+          <li>Option 1</li>
+          <li>Option 2</li>
+          <li (click)="logout()">Logout</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Si el usuario no está logueado, mostrar enlaces de login y register -->
+    <ng-template #loginRegister>
+      <a class="open-button" *ngIf="!isLoggedIn" (click)="openLogin()">Login</a>
+      <a class="open-button" *ngIf="!isLoggedIn" (click)="openRegister()">Register</a>
+    </ng-template>
+  </div>
+  
+
+
+  <!-- Navbar -->
+  <app-navbar></app-navbar>
+
+  <!-- Ruta de la página -->
+  <router-outlet></router-outlet>
+
+  <!-- Botón de scroll hacia arriba -->
+  <img src="../assets/images/arrow-up.png" alt="Arrow Up" (click)="scrollToTop()" class="scroll-to-top" />
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+
+  <!-- Formulario de inicio de sesión -->
+  <div *ngIf="isLoginFormOpen" class="form-popup">
+    <form class="form-container" method="POST" action="/login" (submit)="login(formData.email, formData.password)">
+      <label for="email">Email:</label>
+      <input type="text" name="email" [(ngModel)]="formData.email">
+      <label for="password">Password:</label>
+      <input type="password" name="password" [(ngModel)]="formData.password">
+      <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+
+  <!-- Formulario de registro -->
+  <div *ngIf="isRegisterFormOpen" class="form-popup">
+    <form class="form-container" method="POST" action="/register" (submit)="register(formDataRegister.username, formDataRegister.email, formDataRegister.password, formDataRegister.confirmPassword)">
+      <label for="username">Usuario:</label>
+      <input type="text" name="username" [(ngModel)]="formDataRegister.username">
+      <label for="email">Email:</label>
+      <input type="text" name="email" [(ngModel)]="formDataRegister.email">
+      <label for="password">Password:</label>
+      <input type="password" name="password" [(ngModel)]="formDataRegister.password">
+      <label for="confirmPassword">Repetir Contraseña:</label>
+      <input type="password" name="confirmPassword" [(ngModel)]="formDataRegister.confirmPassword">
+      <div *ngIf="registerError" class="error-message">{{ registerError }}</div>
+      <button type="submit" class="btn">Registrarse</button>
+    </form>
+  </div>
+</div>
+

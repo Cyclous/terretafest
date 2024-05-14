@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-3" *ngFor="let item of displayedData">
+        <!-- Aquí va el contenido de las tarjetas -->
+        <div class="card">
+          <img class="card-img-top" [src]="item.Imagen" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">{{ item['Nombre_del_Evento'] }}</h5>
+            <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ item.Ubicacion }}</p>
+            <p class="card-text"><i class="fas fa-dollar-sign"></i> {{ item.Precio }}</p>
+            <p class="card-text"><i class="far fa-calendar-alt"></i> {{ item.Fecha }}</p> <!-- Nuevo -->
+           <a class="card-link" [routerLink]="['/event', item.id]">Més info</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <div class="load-more-button" *ngIf="data.length > displayedData.length">
+        <button (click)="loadMore()">Cargar más</button>
+      </div>
+      <div class="load-less-button" *ngIf="displayedData.length > itemsPerPage">
+        <button (click)="loadLess()">Cargar menos</button>
+      </div>
+    </div>
+  </div>
+  

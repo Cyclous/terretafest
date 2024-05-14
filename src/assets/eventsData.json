@@ -1,0 +1,144 @@
+[
+  {
+    "id": 1,
+    "Nombre_del_Evento": "Festival de Musica Mediterrània",
+    "Ubicacion": "Plaça de bous, València",
+    "Grupo_de_Musica": "Oques Grasses",
+    "N_de_Entradas": 1000,
+    "Precio": 20,
+    "Imagen": "./assets/images/oquesGrassesVlc.jpg",
+    "Fecha": "19/05/2024",
+    "Informacion": "Disfruta d'un festival de musica mediterrània al cor de València amb el grup Oques Grasses."
+  },
+  {
+    "id": 2,
+    "Nombre_del_Evento": "Concert d'Auxili",
+    "Ubicacion": "Recinte Firal, Alzira",
+    "Grupo_de_Musica": "Auxili",
+    "N_de_Entradas": 6000,
+    "Precio": 15,
+    "Imagen": "./assets/images/auxili.jpeg",
+    "Fecha": "23/05/2024",
+    "Informacion": "Concert d'Auxili al recinte firal d'Alzira. No et perdes aquesta experiència unica!"
+  },
+  {
+    "id": 3,
+    "Nombre_del_Evento": "Nits de vivers",
+    "Ubicacion": "Jardins del Turia, València",
+    "Grupo_de_Musica": "Los Zigarros",
+    "N_de_Entradas": 2000,
+    "Precio": 8,
+    "Imagen": "./assets/images/loszigarros.jpg",
+    "Fecha": "27/05/2024",
+    "Informacion": "Los Zigarros t'esperec en una nit inoblidable als Jardins del Turia. Vine i gaudeix!"
+  },
+  {
+    "id": 4,
+    "Nombre_del_Evento": "Precentacio EP Sa Pena",
+    "Ubicacion": "Sala Recublica, Mislata",
+    "Grupo_de_Musica": "Sa Pena",
+    "N_de_Entradas": 800,
+    "Precio": 8,
+    "Imagen": "./assets/images/sapena.png",
+    "Fecha": "28/05/2024",
+    "Informacion": "Precentacio de l'EP de Sa Pena a la Sala Recublica de Mislata. Viu l'experiència Sa Pena!"
+  },
+  {
+    "id": 5,
+    "Nombre_del_Evento": "L'estiuet amb Figaflawas",
+    "Ubicacion": "Plaça de la marecde deu, Algemesí",
+    "Grupo_de_Musica": "FigaFlawas",
+    "N_de_Entradas": 800,
+    "Precio": 8,
+    "Imagen": "./assets/images/figaflawas.jpg",
+    "Fecha": "02/06/2024",
+    "Informacion": "Gaudeix d'una tarda d'estiu amb FigaFlawas a la Plaça de la Marecde Déu d'Algemesí."
+  },
+  {
+    "id": 6,
+    "Nombre_del_Evento": "L'ultim ball amb Zoo a casa, al Pirata Beach Fest",
+    "Ubicacion": "Polígono Benieto, Gandia",
+    "Grupo_de_Musica": "Zoo, SFDK, Buhos, Lia Kali...",
+    "N_de_Entradas": 700,
+    "Precio": 22,
+    "Fecha": "10 a 13 de Juliol",
+    "Imagen": "./assets/images/pirata.jpg",
+    "Informacion": "Viu la festa de l'estiu a la capital de la Safor amb multitud de grupos com SFDK, Buhos, Lia Kali... entre molts altres! A més a més, no t'has de perdre l'acomiadament de la gran banda de música valenciana de Zoo."
+  },
+  {
+    "id": 7,
+    "Nombre_del_Evento": "Torna la raíz!!",
+    "Ubicacion": "Wizink center, Madrid",
+    "Grupo_de_Musica": "La Raiz",
+    "N_de_Entradas": 10000,
+    "Precio": 28,
+    "Fecha": "15/07/2024",
+    "Imagen": "./assets/images/laraizband.jpg",
+    "Informacion": "Submergeix-te en el vibrant mon del recgae amb Grecn Valley als Jardins del Turia!"
+  },
+  {
+    "id": 8,
+    "Nombre_del_Evento": "Els bessons del rap a la capital a la sala Wah Wah",
+    "Ubicacion": "Carrer de Campoamor, 52, Valencia",
+    "Grupo_de_Musica": "Zahara",
+    "N_de_Entradas": 400,
+    "Fecha": "16/07/2024",
+    "Precio": 15,
+    "Imagen": "./assets/images/ayaxyprok.jpg",
+    "Informacion": "Els bessons apleguen a la mítica i acollidora sala Wah Wah per a presentar en un entorn íntim el seu últim llançament 'Cara y cruz'."
+  },
+  {
+    "id": 9,
+    "Nombre_del_Evento": "Julieta aterritza a les festes de Cullera",
+    "Ubicacion": "C. la Rada, 5, 46400 Cullera, Valencia",
+    "Grupo_de_Musica": "Julieta",
+    "N_de_Entradas": 3500,
+    "Precio": 10,
+    "Fecha": "30/07/2024",
+    "Imagen": "./assets/images/julieta.jpg",
+    "Informacion": "La catalana Julieta farà parada amb el seu toor nacional a la platja de Cullera en un nit especial d'estiu." },
+  {
+    "id": 10,
+    "Nombre_del_Evento": "El rei de la música urbana i reggae a Alzira",
+    "Ubicacion": "Recinte Firal, Alzira",
+    "Grupo_de_Musica": "Swan Fyahbwoy",
+    "N_de_Entradas": 4000,
+    "Precio": 15,
+    "Fecha": "1/08/2024",
+    "Imagen": "./assets/images/fyahbwoy.jpg",
+    "Informacion": "El rei del reggae urbà a la capital de la Ribera"
+  },
+  {
+    "id": 11,
+    "Nombre_del_Evento": "Kaze, de Cartagena a Algemesi",
+        "Ubicacion": "Plaça de la Verge dels Dolors, Algemesi",
+    "Grupo_de_Musica": "Kaze",
+    "N_de_Entradas": 1500,
+    "Precio": 24,
+    "Fecha": "5/08/2024",
+    "Imagen": "./assets/images/kaze.jpg",
+    "Informacion": "No et pots perdre la gira 'Nombre direccion' que fa parada a Algemesi!"
+  },
+  {
+    "id": 12,
+    "Nombre_del_Evento": "",
+    "Ubicacion": "Skatepark de Benimaclet, València",
+    "Grupo_de_Musica": "Ayax y Prok",
+    "N_de_Entradas": 900,
+    "Precio": 24,
+    "Fecha": "30/07/2024",
+    "Imagen": "ayax_prok.jpg",
+    "Informacion": "No et perdes el festival de hip-hop al Skatepark de Benimaclet amb Ayax y Prok!"
+  },
+  {
+    "id": 13,
+    "Nombre_del_Evento": "Festival de Hip-Hop al Skatepark",
+    "Ubicacion": "Skatepark de Benimaclet, València",
+    "Grupo_de_Musica": "Ayax y Prok",
+    "N_de_Entradas": 600,
+    "Precio": 24,
+    "Fecha": "30/07/2024",
+    "Imagen": "ayax_prok.jpg",
+    "Informacion": "No et perdes el festival de hip-hop al Skatepark de Benimaclet amb Ayax y Prok!"
+  }
+]

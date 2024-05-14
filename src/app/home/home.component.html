@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-4" *ngFor="let item of displayedData">
+      <!-- Aquí va el contenido de las tarjetas -->
+      <a class="card-link" [routerLink]="['/noticia', item.id]">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img
+              class="card-img-top"
+              [src]="item.imagen"
+              alt="Card image cap"
+            />
+            <div class="card-overlay">
+              <h3 class="card-title">{{ item.titulo }}</h3>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="button-container">
+    <div class="load-more-button" *ngIf="data.length > displayedData.length">
+      <button (click)="loadMore()">Carregar més</button>
+    </div>
+    <div class="load-less-button" *ngIf="displayedData.length > itemsPerPage">
+      <button (click)="loadLess()">Carregar menys</button>
+    </div>
+  </div>
+</div>

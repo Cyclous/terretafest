@@ -1,0 +1,28 @@
+.navbar {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #9ec5de;
+  color: white;
+  background-color: white;
+  margin-bottom: 30px;
+}
+
+.links {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.links a {
+  color: #9ec5de;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.links a:hover {
+  color: orange;
+}
