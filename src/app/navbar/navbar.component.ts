@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.sessionService.getLoggedInUsername();
+    console.log("esta loged?" , this.isLoggedIn);
   }
 
   home(): void {
@@ -29,10 +30,11 @@ export class NavbarComponent implements OnInit {
 
   programs(): void{
   if (!this.isLoggedIn) {
+    console.log("valor de isloggedIn al llamar a programs", this.isLoggedIn);
         alert('Has d\'iniciar sessió per accedir a aquesta funcionalitat.');
       } else {
         // Aquí puedes añadir la lógica para navegar a la página de "merxandatge"
-        this.router.navigate(['']);
+        this.router.navigate(['/programes']);
       }
   }
   
@@ -46,5 +48,8 @@ export class NavbarComponent implements OnInit {
 
   contact(): void {
     this.router.navigate(['/contact']);
+  }
+  merchan(): void {
+    this.router.navigate(['/merxandatge']);
   }
 }

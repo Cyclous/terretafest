@@ -1,0 +1,10 @@
+.container {
+    display: flex; /* Utilizamos flexbox para centrar los elementos */
+    flex-wrap: wrap; /* Permitimos que los elementos se envuelvan en filas */
+    justify-content: center; /* Centramos los elementos horizontalmente */
+  }
+  
+  .container iframe {
+    margin: 10px; /* Añadimos un margen alrededor de cada iframe */
+  }
+  

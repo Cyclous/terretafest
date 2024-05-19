@@ -1,0 +1,64 @@
+.merchan-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: transparent; /* Quita el fondo blanco */
+  }
+  
+  .producto {
+    flex: 0 0 calc(30% - 20px); 
+    padding: 10px;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .imagen {
+    position: relative;
+    max-width: 200px;
+  }
+  
+  .imagen img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .tipo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+  }
+  
+  .detalles {
+    padding: 10px;
+  }
+  
+  .detalles h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+  }
+  
+  .precio {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  
+  .comprar-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .comprar-btn:hover {
+    background-color: #0056b3;
+  }
+  

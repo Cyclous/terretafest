@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EventsDetailsComponent } from './events-details/events-details.component';
 import { ProgramesComponent } from './programes/programes.component';
+import { MerchanComponent } from './merchan/merchan.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/inici', pathMatch: 'full' }, // Redirecciona la ruta vacía a /home
@@ -22,4 +23,5 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'noticia/:id', component: NewsDetailComponent },
   { path: 'recuperarContrassenya', component: ForgotPasswordComponent },
+  { path: 'merxandatge', component: MerchanComponent },
 ];
