@@ -1,6 +1,6 @@
 <div class="news-container">
   <h2 class="news-title">{{ newsTitle }}</h2>
-  <div class="news-info">{{ newsInfo }}</div>
+  <div class="news-info" [innerHTML]="newsInfo"></div>
   <img [src]="newsImage" alt="Noticia" class="news-image" />
   <div class="social-links">
     <a href="#">Enlace a red social 1</a>

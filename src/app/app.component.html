@@ -4,11 +4,9 @@
   </div>
 
   <div class="session">
-    <!-- Si el usuario está logueado, mostrar el nombre de usuario y el dropdown menu -->
     <div *ngIf="loggedInUsername; else loginRegister" (click)="toggleDropdown()">
       <div class="user-info">
         <span>{{ loggedInUsername }}</span>
-        <!-- Icono de logout -->
         <span class="logout-icon" (click)="logout()">
           <img src="../assets/icons/logout.png" alt="Logout">
         </span>
@@ -28,8 +26,6 @@
       <a class="open-button" *ngIf="!isLoggedIn" (click)="openRegister()">Register</a>
     </ng-template>
   </div>
-  
-
 
   <!-- Navbar -->
   <app-navbar></app-navbar>
@@ -44,8 +40,9 @@
   <app-footer></app-footer>
 
   <!-- Formulario de inicio de sesión -->
-  <div *ngIf="isLoginFormOpen" class="form-popup">
-    <form class="form-container" method="POST" action="/login" (submit)="login(formData.email, formData.password)">
+  <div *ngIf="isLoginFormOpen || isRegisterFormOpen" class="form-popup">
+    <span class="close-button" (click)="closePopUp()">&times;</span>
+    <form class="form-container" method="POST" action="/login" *ngIf="isLoginFormOpen" (submit)="login(formData.email, formData.password)">
       <label for="email">Email:</label>
       <input type="text" name="email" [(ngModel)]="formData.email">
       <label for="password">Password:</label>
@@ -53,11 +50,8 @@
       <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
       <button type="submit" class="btn">Login</button>
     </form>
-  </div>
 
-  <!-- Formulario de registro -->
-  <div *ngIf="isRegisterFormOpen" class="form-popup">
-    <form class="form-container" method="POST" action="/register" (submit)="register(formDataRegister.username, formDataRegister.email, formDataRegister.password, formDataRegister.confirmPassword)">
+    <form class="form-container" method="POST" action="/register" *ngIf="isRegisterFormOpen" (submit)="register(formDataRegister.username, formDataRegister.email, formDataRegister.password, formDataRegister.confirmPassword)">
       <label for="username">Usuario:</label>
       <input type="text" name="username" [(ngModel)]="formDataRegister.username">
       <label for="email">Email:</label>
@@ -71,4 +65,3 @@
     </form>
   </div>
 </div>
-

@@ -33,14 +33,24 @@
 /* Estilos para el formulario emergente */
 .form-popup {
   position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50px; 
+  right: 20px; 
   border-radius: 10px;
   background-color: #f9f9f9;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  z-index: 9;
+}
+
+/* Estilos para el botón de cierre */
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: red;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 /* Estilos para el contenedor del formulario */

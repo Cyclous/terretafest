@@ -20,10 +20,8 @@
   </div>
   <div class="button-container">
     <div class="load-more-button" *ngIf="data.length > displayedData.length">
-      <button (click)="loadMore()">Carregar més</button>
     </div>
     <div class="load-less-button" *ngIf="displayedData.length > itemsPerPage">
-      <button (click)="loadLess()">Carregar menys</button>
     </div>
   </div>
 </div>

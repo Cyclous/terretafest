@@ -78,7 +78,7 @@
   },
   {
     "id": 8,
-    "Nombre_del_Evento": "Els bessons del rap a la capital a la sala Wah Wah",
+    "Nombre_del_Evento": "Els bessons del rap a la sala Wah Wah",
     "Ubicacion": "Carrer de Campoamor, 52, Valencia",
     "Grupo_de_Musica": "Zahara",
     "N_de_Entradas": 400,
@@ -121,24 +121,13 @@
   },
   {
     "id": 12,
-    "Nombre_del_Evento": "",
-    "Ubicacion": "Skatepark de Benimaclet, València",
-    "Grupo_de_Musica": "Ayax y Prok",
+    "Nombre_del_Evento": "Pep Gimeno Botifarra amb 'Ja ve l'aire'",
+    "Ubicacion": "Plaça de bous,Ondara",
+    "Grupo_de_Musica": "Pep Gimeno Botifarra",
     "N_de_Entradas": 900,
-    "Precio": 24,
+    "Precio": 8,
     "Fecha": "30/07/2024",
-    "Imagen": "ayax_prok.jpg",
-    "Informacion": "No et perdes el festival de hip-hop al Skatepark de Benimaclet amb Ayax y Prok!"
-  },
-  {
-    "id": 13,
-    "Nombre_del_Evento": "Festival de Hip-Hop al Skatepark",
-    "Ubicacion": "Skatepark de Benimaclet, València",
-    "Grupo_de_Musica": "Ayax y Prok",
-    "N_de_Entradas": 600,
-    "Precio": 24,
-    "Fecha": "30/07/2024",
-    "Imagen": "ayax_prok.jpg",
-    "Informacion": "No et perdes el festival de hip-hop al Skatepark de Benimaclet amb Ayax y Prok!"
+    "Imagen": "./assets/images/botifarra.jpg",
+    "Informacion": "Pep Gimeo Botifarra fa parada a la plaça de bous d'Ondara per a presentar el seu últim treball 'Ja ve l'aire' , de segur que serà una nit màgica i ha asegurat que hi hauran convidats i col·laboracions especials!"
   }
 ]

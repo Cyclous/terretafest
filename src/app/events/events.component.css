@@ -30,6 +30,7 @@
     border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
+    height: 480px;
   }
   
   .card:hover {
@@ -41,6 +42,10 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
+  }
+  .card-link{
+    color: #9ec5de;
+    font-weight: bold;
   }
   
   .card-body {
@@ -57,15 +62,3 @@
     margin-bottom: 10px;
     font-size: 16px;
   }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .load-more-button,
-  .load-less-button {
-    margin: 10px;
-  }
-  

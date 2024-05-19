@@ -12,6 +12,7 @@ export class NewsDetailComponent implements OnInit {
   newsTitle: string = '';
   newsImage: string = '';
   newsInfo: string = '';
+  newsParagraphs: string[] = [];
   newId: string = '';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
@@ -30,6 +31,7 @@ export class NewsDetailComponent implements OnInit {
           this.newsTitle = selectedNews.titulo;
           this.newsImage = selectedNews.imagen;
           this.newsInfo = selectedNews.info;
+          this.newsParagraphs = this.newsInfo.split('\n\n');
           console.log('News Title:', this.newsTitle);
           console.log('News Image:', this.newsImage);
           console.log('News Info:', this.newsInfo);
@@ -39,5 +41,7 @@ export class NewsDetailComponent implements OnInit {
         }
       });
     });
+
+    
   }
 }

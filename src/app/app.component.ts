@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { SessionService } from './services/session.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { GoogleMap } from '@angular/google-maps';
 
 interface LoginData {
   email: string;
@@ -32,6 +33,7 @@ interface LoginResponse {
     FooterComponent,
     FormsModule,
     FontAwesomeModule,
+    GoogleMap,
     
   ],
 })
@@ -74,17 +76,21 @@ export class AppComponent {
   openLogin(): void {
     console.log('Opening login form');
     this.isLoginFormOpen = true;
+    this.isRegisterFormOpen = false;
   }
   
   openRegister(): void {
     console.log('Opening register form');
     this.isRegisterFormOpen = true;
-  }
-
-  closeLogin(): void {
-    console.log('Closing login form');
     this.isLoginFormOpen = false;
   }
+
+  closePopUp(): void {
+    console.log('Closing pop-up form');
+    this.isLoginFormOpen = false;
+    this.isRegisterFormOpen = false;
+  }
+  
   login(email: string, password: string): void {
     const url = this.API_URL + "/login";
     const body = new FormData();
