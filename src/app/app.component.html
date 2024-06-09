@@ -7,9 +7,12 @@
     <div *ngIf="loggedInUsername; else loginRegister" (click)="toggleDropdown()">
       <div class="user-info">
         <span>{{ loggedInUsername }}</span>
-        <span class="logout-icon" (click)="logout()">
-          <img src="../assets/icons/logout.png" alt="Logout">
+        <span >
+          <img class="cart-icon" src="../assets/icons/cart.png" alt="Carret">
         </span>
+        <span class="logout-icon" (click)="logout()">
+          <img class="img-logout" src="../assets/icons/logout.png" alt="Sortir">
+        </span>      
       </div>
       <!-- Dropdown menu -->
       <div *ngIf="showDropdown" class="dropdown-menu">

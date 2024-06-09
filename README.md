@@ -27,4 +27,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Run XAMPP
-/opt/lampp$ sudo ./lampp start
+/opt/lampp$ 
+sudo ./lampp start
+
+## RUN Front
+
+/opt/lampp/htdocs/dwc/terretafest/terretafest_project
+ng serve --host=0.0.0.0

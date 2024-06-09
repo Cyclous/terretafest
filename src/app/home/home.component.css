@@ -1,22 +1,30 @@
-.container {
-  margin-top: 30px;
+html, body {
+  height: 100%;
+  margin: 0;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   padding: 0 20px;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 1200px;
 }
 
-.col-md-6 {
+.col-md-6, .col-lg-4 {
   flex: 0 0 calc(33.33% - 20px);
   max-width: calc(33.33% - 20px);
-  margin-bottom: 20px;
+  margin: 10px; /* Ajuste para mantener el espacio alrededor de las tarjetas */
 }
 
 .card {
@@ -51,5 +59,22 @@
   margin: 0;
   font-size: 18px;
   color: white;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.load-more-button,
+.load-less-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
   text-align: center;
 }

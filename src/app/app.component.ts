@@ -18,6 +18,7 @@ interface LoginData {
 
 interface LoginResponse {
   username: string;
+  role_id: number;
 }
 
 @Component({
@@ -61,6 +62,7 @@ export class AppComponent {
   showDropdown : boolean = false;
   loginError: string = '';
   registerError: string = '';
+  role_id: number = 0;
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
@@ -85,41 +87,44 @@ export class AppComponent {
     this.isLoginFormOpen = false;
   }
 
-  closePopUp(): void {
-    console.log('Closing pop-up form');
-    this.isLoginFormOpen = false;
-    this.isRegisterFormOpen = false;
-  }
-  
-  login(email: string, password: string): void {
-    const url = this.API_URL + "/login";
-    const body = new FormData();
-    body.append('email', email);
-    body.append('password', password);
-  
-    this.http.post<LoginResponse>(url, body).subscribe(
-      (response) => {
-        console.log('Server response:', response);
-        if (response.username) {
-          this.sessionService.login(response.username); // Almacenar el nombre de usuario en localStorage
-          this.loggedInUsername = response.username;
-          this.isLoginFormOpen = false;
-          this.loginError = '';
-        } else {
-          console.error('Respuesta login:', response);
-          this.loginError = 'Credenciales incorrectas. Inténtalo de nuevo.';
-        }
-      },
-      (error) => {
-        console.error('Error logging in:', error);
-        if (error.error && error.error.error) {
-          this.loginError = error.error.error;
-        } else {
-          this.loginError = 'Error desconocido';
-        }
+ closePopUp(): void {
+  console.log('Closing pop-up form');
+  this.isLoginFormOpen = false;
+  this.isRegisterFormOpen = false;
+}
+
+login(email: string, password: string): void {
+  const url = this.API_URL + "/login";
+  const body = new FormData();
+  body.append('email', email);
+  body.append('password', password);
+
+  this.http.post<LoginResponse>(url, body).subscribe(
+    (response) => {
+      console.log('Server response:', response);
+      if (response.username && response.role_id !== undefined) {
+        this.sessionService.login(response.username, response.role_id); // Almacenar el nombre de usuario y role_id en localStorage
+        this.loggedInUsername = response.username;
+        this.role_id = response.role_id;
+        console.log(this.role_id)
+        this.isLoginFormOpen = false;
+        this.loginError = '';
+      } else {
+        console.error('Respuesta login:', response);
+        this.loginError = 'Credenciales incorrectas. Inténtalo de nuevo.';
       }
-    );
-  }
+    },
+    (error) => {
+      console.error('Error logging in:', error);
+      if (error.error && error.error.error) {
+        this.loginError = error.error.error;
+      } else {
+        this.loginError = 'Error desconocido';
+      }
+    }
+  );
+}
+
 
   logout() {
     this.sessionService.logout(); // Eliminar el nombre de usuario al cerrar sesión

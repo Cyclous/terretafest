@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { GeocodingService } from '../geocoding.service';
-import { GoogleMap } from '@angular/google-maps'; // Importa el servicio de geocodificación
+import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { CommonModule } from '@angular/common';
-import { Loader } from "@googlemaps/js-api-loader"
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 interface Event {
   id: number;
@@ -17,12 +15,16 @@ interface Event {
   Imagen?: string;
   Fecha?: string;
   Informacion: string;
+  Coordenadas?: {
+    latitud: number;
+    longitud: number;
+  };
 }
 
 @Component({
   selector: 'app-events-details',
   standalone: true,
-  imports:[GoogleMap,GoogleMapsModule,CommonModule,],
+  imports:[GoogleMapsModule],
   templateUrl: './events-details.component.html',
   styleUrls: ['./events-details.component.css']
 })
@@ -36,20 +38,19 @@ export class EventsDetailsComponent implements OnInit {
   Imagen: string = '';
   Fecha: string = '';
   Informacion: string = '';
-  coordenadas: { lat: number, lng: number } = { lat: 0, lng: 0 }; // Definición de coordenadas
+  Coordenadas: { latitud: number; longitud: number } = { latitud: 0, longitud: 0 };
 
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private geocodingService: GeocodingService // Inyecta el servicio de geocodificación
-  ) {
-    
-  }
+    private sanitizer: DomSanitizer
+  ) {}
+  
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params['id'];
 
-      this.http.get<Event[]>('assets/eventsData.json').subscribe(data => {
+      this.http.get<Event[]>('http://localhost:5000/eventos').subscribe(data => {
         const selectedEvent = data.find(event => event.id === +this.id);
         if (selectedEvent) {
           this.Nombre_del_Evento = selectedEvent.Nombre_del_Evento;
@@ -60,29 +61,14 @@ export class EventsDetailsComponent implements OnInit {
           this.Imagen = selectedEvent.Imagen || '';
           this.Fecha = selectedEvent.Fecha || '';
           this.Informacion = selectedEvent.Informacion;
-
-          this.geocodingService.getCoordinates(this.Ubicacion).subscribe(
-            {
-              next: resp => {
-                if (resp && resp.results && resp.results.length > 0) {
-                  const geometry = resp.results[0].geometry;
-                  if (geometry && geometry.location) {
-                    const location = geometry.location;
-                    this.coordenadas = { lat: location.lat, lng: location.lng };
-                  }
-                }
-              },
-              error: err => {
-                console.error('Error al llamar al servicio de geocodificación:', err);
-              }
-           });         
+          this.Coordenadas = selectedEvent.Coordenadas || { latitud: 0, longitud: 0 };
         } 
       });
     });
-    
-    // Carga intercalada con la etiqueta <script>
-    const script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?libraries=places,visualization&key=TU_API_KEY&v=weekly&callback=initMap';
-    document.body.appendChild(script);
+  }
+
+  getGoogleMapUrl(): SafeResourceUrl {
+    const url = `https://www.google.com/maps/embed/v1/view?zoom=17&center=${this.Coordenadas.latitud},${this.Coordenadas.longitud}&key=AIzaSyA8cxIg7Kc1lmWRH8qdNqecxT-aX8ZqTUg`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

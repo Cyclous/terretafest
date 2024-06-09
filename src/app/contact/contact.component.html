@@ -1,44 +1,57 @@
-<!-- contact.component.html -->
 <div class="title">
-    <h1>CONTACTA AMB NOSALTRES</h1>
+  <h1>CONTACTA AMB NOSALTRES</h1>
 </div>
 <div class="contact-container">
-    <form id="contact-form" class="contact-form">
-      <div class="form-group inline">
-        <div class="form-item">
-          <input type="text" id="name" name="name" placeholder="Nom" required>
-        </div>
-        <div class="form-item">
-          <input type="email" id="email" name="email" placeholder="Correu" required>
+  <form id="contact-form" class="contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+    <div class="form-group inline">
+      <div class="form-item">
+        <input type="text" id="name" name="name" placeholder="Nom" required [(ngModel)]="nombre" #name="ngModel">
+        <div *ngIf="isFormSubmitted && name.invalid" class="error-message">
+          El nom és obligatori.
         </div>
       </div>
-      <div class="form-group">
-        <input type="text" id="subject" name="subject" placeholder="Assumpte" required>
-      </div>
-      <div class="form-group">
-        <textarea id="message" name="message" rows="4" required></textarea>
-      </div>
-      <div class="form-group privacy-policy">
-        <div class="check">
-            <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+      <div class="form-item">
+        <input type="email" id="email" name="email" placeholder="Correu" required email [(ngModel)]="correo" #email="ngModel" (input)="validateEmail(email)">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+          Introdueix un correu electrònic vàlid.
         </div>
-        <div class="text">
-            <label for="privacy-policy">He llegit i accepte la política de privacitat</label>
-        </div>
+      </div>
     </div>
-    
-      <div class="form-group buttons">
-        <button id="privacy-policy-button" type="button">Política de privacitat</button>
-        <button type="submit">Enviar</button>
+    <div class="form-group">
+      <input type="text" id="subject" name="subject" placeholder="Assumpte" required [(ngModel)]="asunto" #subject="ngModel">
+      <div *ngIf="isFormSubmitted && subject.invalid" class="error-message">
+        L'assumpte és obligatori.
       </div>
-    </form>
+    </div>
+    <div class="form-group">
+      <textarea id="message" name="message" rows="4" placeholder="Missatge" required [(ngModel)]="mensaje" #message="ngModel"></textarea>
+      <div *ngIf="isFormSubmitted && message.invalid" class="error-message">
+        El missatge és obligatori.
+      </div>
+    </div>
+    <div class="form-group privacy-policy">
+      <div class="check">
+        <input type="checkbox" id="privacy-policy" name="privacy-policy" required [(ngModel)]="privacyPolicyAccepted" #privacyPolicy="ngModel">
+      </div>
+      <div class="text">
+        <label for="privacy-policy">He llegit i accepte la política de privacitat</label>
+        <div *ngIf="isFormSubmitted && !privacyPolicyAccepted" class="error-message">
+          Has de acceptar la política de privacitat.
+        </div>
+      </div>
+    </div>
+    <div class="form-group buttons">
+      <button id="privacy-policy-button" type="button" (click)="openPrivacyPolicyModal()">Política de privacitat</button>
+      <button type="submit" [disabled]="!contactForm.valid">Enviar</button>
+    </div>
+  </form>
 </div>
 
 <!-- Modal de Política de Privacidad -->
 <div id="privacy-policy-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" (click)="closePrivacyPolicyModal()">&times;</span>
-      <h2>Política de Privacitat</h2>
-      <p>{{ privacyPolicyText }}</p>
-    </div>
+  <div class="modal-content">
+    <span class="close" (click)="closePrivacyPolicyModal()">&times;</span>
+    <h2>Política de Privacitat</h2>
+    <p>{{ privacyPolicyText }}</p>
+  </div>
 </div>

@@ -8,7 +8,11 @@
     "Precio": 20,
     "Imagen": "./assets/images/oquesGrassesVlc.jpg",
     "Fecha": "19/05/2024",
-    "Informacion": "Disfruta d'un festival de musica mediterrània al cor de València amb el grup Oques Grasses."
+    "Informacion": "Disfruta d'un festival de musica mediterrània al cor de València amb el grup Oques Grasses.",
+    "Coordenadas": {
+      "latitud": 39.459009,
+      "longitud": -0.371435
+    }
   },
   {
     "id": 2,
@@ -19,7 +23,11 @@
     "Precio": 15,
     "Imagen": "./assets/images/auxili.jpeg",
     "Fecha": "23/05/2024",
-    "Informacion": "Concert d'Auxili al recinte firal d'Alzira. No et perdes aquesta experiència unica!"
+    "Informacion": "Concert d'Auxili al recinte firal d'Alzira. No et perdes aquesta experiència unica!",
+    "Coordenadas": {
+      "latitud": 39.155153,
+      "longitud": -0.437562
+    }
   },
   {
     "id": 3,
@@ -30,7 +38,11 @@
     "Precio": 8,
     "Imagen": "./assets/images/loszigarros.jpg",
     "Fecha": "27/05/2024",
-    "Informacion": "Los Zigarros t'esperec en una nit inoblidable als Jardins del Turia. Vine i gaudeix!"
+    "Informacion": "Los Zigarros t'esperec en una nit inoblidable als Jardins del Turia. Vine i gaudeix!",
+    "Coordenadas": {
+      "latitud": 39.476474,
+      "longitud": -0.371350
+    }
   },
   {
     "id": 4,
@@ -41,7 +53,11 @@
     "Precio": 8,
     "Imagen": "./assets/images/sapena.png",
     "Fecha": "28/05/2024",
-    "Informacion": "Precentacio de l'EP de Sa Pena a la Sala Recublica de Mislata. Viu l'experiència Sa Pena!"
+    "Informacion": "Precentacio de l'EP de Sa Pena a la Sala Recublica de Mislata. Viu l'experiència Sa Pena!",
+    "Coordenadas": {
+      "latitud": 39.478507,
+      "longitud": -0.416765
+    }
   },
   {
     "id": 5,
@@ -52,7 +68,11 @@
     "Precio": 8,
     "Imagen": "./assets/images/figaflawas.jpg",
     "Fecha": "02/06/2024",
-    "Informacion": "Gaudeix d'una tarda d'estiu amb FigaFlawas a la Plaça de la Marecde Déu d'Algemesí."
+    "Informacion": "Gaudeix d'una tarda d'estiu amb FigaFlawas a la Plaça de la Marecde Déu d'Algemesí.",
+    "Coordenadas": {
+      "latitud": 39.197719,
+      "longitud": -0.443767
+    }
   },
   {
     "id": 6,
@@ -63,7 +83,11 @@
     "Precio": 22,
     "Fecha": "10 a 13 de Juliol",
     "Imagen": "./assets/images/pirata.jpg",
-    "Informacion": "Viu la festa de l'estiu a la capital de la Safor amb multitud de grupos com SFDK, Buhos, Lia Kali... entre molts altres! A més a més, no t'has de perdre l'acomiadament de la gran banda de música valenciana de Zoo."
+    "Informacion": "Viu la festa de l'estiu a la capital de la Safor amb multitud de groups com SFDK, Buhos, Lia Kali... entre molts altres! A més a més, no t'has de perdre l'acomiadament de la gran banda de música valenciana de Zoo.",
+    "Coordenadas": {
+      "latitud": 38.970143,
+      "longitud": -0.176721
+    }
   },
   {
     "id": 7,
@@ -74,7 +98,11 @@
     "Precio": 28,
     "Fecha": "15/07/2024",
     "Imagen": "./assets/images/laraizband.jpg",
-    "Informacion": "Submergeix-te en el vibrant mon del recgae amb Grecn Valley als Jardins del Turia!"
+    "Informacion": "Submergeix-te en el vibrant mon del recgae amb Grecn Valley als Jardins del Turia!",
+    "Coordenadas": {
+      "latitud": 40.443179,
+      "longitud": -3.615629
+    }
   },
   {
     "id": 8,
@@ -85,49 +113,70 @@
     "Fecha": "16/07/2024",
     "Precio": 15,
     "Imagen": "./assets/images/ayaxyprok.jpg",
-    "Informacion": "Els bessons apleguen a la mítica i acollidora sala Wah Wah per a presentar en un entorn íntim el seu últim llançament 'Cara y cruz'."
+    "Informacion": "Els bessons apleguen a la mítica i acollidora sala Wah Wah per a presentar en un entorn íntim el seu últim llançament 'Cara y cruz'.",
+    "Coordenadas": {
+      "latitud": 39.452056,
+      "longitud": -0.352345
+    }
   },
-  {
-    "id": 9,
-    "Nombre_del_Evento": "Julieta aterritza a les festes de Cullera",
-    "Ubicacion": "C. la Rada, 5, 46400 Cullera, Valencia",
-    "Grupo_de_Musica": "Julieta",
-    "N_de_Entradas": 3500,
-    "Precio": 10,
-    "Fecha": "30/07/2024",
-    "Imagen": "./assets/images/julieta.jpg",
-    "Informacion": "La catalana Julieta farà parada amb el seu toor nacional a la platja de Cullera en un nit especial d'estiu." },
-  {
-    "id": 10,
-    "Nombre_del_Evento": "El rei de la música urbana i reggae a Alzira",
-    "Ubicacion": "Recinte Firal, Alzira",
-    "Grupo_de_Musica": "Swan Fyahbwoy",
-    "N_de_Entradas": 4000,
-    "Precio": 15,
-    "Fecha": "1/08/2024",
-    "Imagen": "./assets/images/fyahbwoy.jpg",
-    "Informacion": "El rei del reggae urbà a la capital de la Ribera"
-  },
-  {
-    "id": 11,
-    "Nombre_del_Evento": "Kaze, de Cartagena a Algemesi",
-        "Ubicacion": "Plaça de la Verge dels Dolors, Algemesi",
-    "Grupo_de_Musica": "Kaze",
-    "N_de_Entradas": 1500,
-    "Precio": 24,
-    "Fecha": "5/08/2024",
-    "Imagen": "./assets/images/kaze.jpg",
-    "Informacion": "No et pots perdre la gira 'Nombre direccion' que fa parada a Algemesi!"
-  },
-  {
-    "id": 12,
-    "Nombre_del_Evento": "Pep Gimeno Botifarra amb 'Ja ve l'aire'",
-    "Ubicacion": "Plaça de bous,Ondara",
-    "Grupo_de_Musica": "Pep Gimeno Botifarra",
-    "N_de_Entradas": 900,
-    "Precio": 8,
-    "Fecha": "30/07/2024",
-    "Imagen": "./assets/images/botifarra.jpg",
-    "Informacion": "Pep Gimeo Botifarra fa parada a la plaça de bous d'Ondara per a presentar el seu últim treball 'Ja ve l'aire' , de segur que serà una nit màgica i ha asegurat que hi hauran convidats i col·laboracions especials!"
-  }
-]
+    {
+      "id": 9,
+      "Nombre_del_Evento": "Julieta aterritza a les festes de Cullera",
+      "Ubicacion": "C. la Rada, 5, 46400 Cullera, Valencia",
+      "Grupo_de_Musica": "Julieta",
+      "N_de_Entradas": 3500,
+      "Precio": 10,
+      "Fecha": "30/07/2024",
+      "Imagen": "./assets/images/julieta.jpg",
+      "Informacion": "La catalana Julieta farà parada amb el seu toor nacional a la platja de Cullera en un nit especial d'estiu.",
+      "Coordenadas": {
+        "latitud": 39.166701,
+        "longitud": -0.250609
+      }
+    },
+    {
+      "id": 10,
+      "Nombre_del_Evento": "El rei de la música urbana i reggae a Alzira",
+      "Ubicacion": "Recinte Firal, Alzira",
+      "Grupo_de_Musica": "Swan Fyahbwoy",
+      "N_de_Entradas": 4000,
+      "Precio": 15,
+      "Fecha": "1/08/2024",
+      "Imagen": "./assets/images/fyahbwoy.jpg",
+      "Informacion": "El rei del reggae urbà a la capital de la Ribera",
+      "Coordenadas": {
+        "latitud": 39.149238,
+        "longitud": -0.439659
+      }
+    },
+    {
+      "id": 11,
+      "Nombre_del_Evento": "Kaze, de Cartagena a Algemesi",
+      "Ubicacion": "Plaça de la Verge dels Dolors, Algemesi",
+      "Grupo_de_Musica": "Kaze",
+      "N_de_Entradas": 1500,
+      "Precio": 24,
+      "Fecha": "5/08/2024",
+      "Imagen": "./assets/images/kaze.jpg",
+      "Informacion": "No et pots perdre la gira 'Nombre direccion' que fa parada a Algemesi!",
+      "Coordenadas": {
+        "latitud": 39.192072,
+        "longitud": -0.440830
+      }
+    },
+    {
+      "id": 12,
+      "Nombre_del_Evento": "Pep Gimeno Botifarra amb 'Ja ve l'aire'",
+      "Ubicacion": "Plaça de bous,Ondara",
+      "Grupo_de_Musica": "Pep Gimeno Botifarra",
+      "N_de_Entradas": 900,
+      "Precio": 8,
+      "Fecha": "30/07/2024",
+      "Imagen": "./assets/images/botifarra.jpg",
+      "Informacion": "Pep Gimeo Botifarra fa parada a la plaça de bous d'Ondara per a presentar el seu últim treball 'Ja ve l'aire' , de segur que serà una nit màgica i ha asegurat que hi hauran convidats i col·laboracions especials!",
+      "Coordenadas": {
+        "latitud": 38.819410,
+        "longitud": 0.038664
+      }
+    }
+  ]

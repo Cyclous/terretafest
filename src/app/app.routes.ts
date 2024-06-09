@@ -20,6 +20,7 @@ export const routes: Routes = [
   { path: 'programes', component: ProgramesComponent },
   { path: 'galeria', component: GalleryComponent },
   { path: 'event/:id', component: EventsDetailsComponent },
+  { path: 'galeria/:id', component: GalleryComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'noticia/:id', component: NewsDetailComponent },
   { path: 'recuperarContrassenya', component: ForgotPasswordComponent },

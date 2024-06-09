@@ -1,25 +1,69 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-6 col-lg-3" *ngFor="let item of displayedData">
-        <!-- Aquí va el contenido de las tarjetas -->
-        <div class="card">
-          <img class="card-img-top" [src]="item.Imagen" alt="Card image cap" />
-          <div class="card-body">
-            <h5 class="card-title">{{ item['Nombre_del_Evento'] }}</h5>
-            <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ item.Ubicacion }}</p>
-            <p class="card-text"><i class="fas fa-euro-sign"></i> {{ item.Precio }}</p>
-            <p class="card-text"><i class="far fa-calendar-alt"></i> {{ item.Fecha }}</p> <!-- Nuevo -->
-           <a class="card-link" [routerLink]="['/event', item.id]">Més info</a>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #drawer mode="side" opened="false" class="custom-sidenav">
+    <form [formGroup]="eventForm" class="event-form" (ngSubmit)="saveEvent()">
+      <div class="drawer-toolbar">
+        <span>Detalles del Evento</span>
+        <span class="spacer"></span>
+        <button type="button" class="close-button" (click)="drawer.close()">×</button>
+      </div>
 
+      <div class="form-group">
+        <label for="nombreEvento">Nom de l'event</label>
+        <input id="nombreEvento" formControlName="nombreEvento" type="text" placeholder="Nom de l'event">
+      </div>
+
+      <div class="form-group">
+        <label for="ubicacion">Ubicació</label>
+        <input id="ubicacion" formControlName="ubicacion" type="text" placeholder="Ubicació">
+      </div>
+
+      <div class="form-group">
+        <label for="grupoMusica">Grup de música</label>
+        <input id="grupoMusica" formControlName="grupoMusica" type="text" placeholder="Grup de música">
+      </div>
+
+      <div class="form-group">
+        <label for="numeroEntradas">Nº Entrades</label>
+        <input id="numeroEntradas" formControlName="numeroEntradas" type="number" placeholder="Nº Entrades">
+      </div>
+
+      <div class="form-group">
+        <label for="precio">Preu</label>
+        <input id="precio" formControlName="precio" type="number" placeholder="Preu">
+      </div>
+
+      <div class="form-group">
+        <label for="fecha">Data</label>
+        <input id="fecha" formControlName="fecha" type="date" placeholder="Data">
+      </div>      
+      <div class="button-container">
+        <button type="submit" class="submit-button">Guardar</button>
+      </div>
+    </form>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Botón para crear evento, visible solo para role_id === 1 -->
+    <button class="create-event-button" (click)="drawer.open()" *ngIf="role_id === 1">Crear event</button>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3" *ngFor="let item of displayedData" [ngClass]="{ 'past-event': isPastEvent(item.Fecha) }">
+          <div class="card">
+            <div *ngIf="isPastEvent(item.Fecha)" class="past-label">PASSAT</div>
+            <img class="card-img-top" [src]="item.Imagen" alt="Card image cap" />
+            <div class="card-body">
+              <h5 class="card-title">{{ item['Nombre_del_Evento'] }}</h5>
+              <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ item.Ubicacion }}</p>
+              <p class="card-text"><i class="fas fa-euro-sign"></i> {{ item.Precio }}</p>
+              <p class="card-text"><i class="far fa-calendar-alt"></i> {{ item.Fecha }}</p>
+              <a *ngIf="!isPastEvent(item.Fecha)" class="card-link" [routerLink]="['/event', item.id]">Més info</a>
+              <button *ngIf="isPastEvent(item.Fecha)" class="btn btn-secondary" [routerLink]="['/galeria', item.id]">Galeria</button>
+              <button *ngIf="role_id === 1" class="btn btn-danger" (click)="deleteEvent(item.id)">Eliminar</button>
+              <button *ngIf="role_id === 1" class="btn btn-warning" (click)="startEditing(item)">Editar</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="button-container">
-      <div class="load-more-button" *ngIf="data.length > displayedData.length">
-      </div>
-      <div class="load-less-button" *ngIf="displayedData.length > itemsPerPage">
-      </div>
-    </div>
-  </div>
-  
+  </mat-sidenav-content>
+</mat-sidenav-container>

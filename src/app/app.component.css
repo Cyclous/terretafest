@@ -131,12 +131,22 @@
 }
 
 .user-info {
-  display: flex; /* Utilizamos flexbox para alinear elementos verticalmente */
-  align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+  display: flex; 
+  align-items: center; 
+  color: white;
+  gap: 10px;
 }
 
-.user-icon {
-  width: 12px; /* Define el tamaño del icono */
-  height: 12px;
-  margin-right: 8px; /* Ajusta el espacio entre el icono y el nombre de usuario */
+.img-logout {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: white;
+}
+
+.cart-icon{
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: white;
 }
