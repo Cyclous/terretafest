@@ -7,7 +7,7 @@
     <div class="detalles">
       <h2>{{ producto.nombre }}</h2>
       <p class="precio">{{ producto.precio }}&euro;</p>
-      <button class="comprar-btn">Afegir a la cistella</button>
+      <button class="comprar-btn" (click)="addToCart(producto)">Afegir a la cistella</button>
     </div>
   </div>
 </div>

@@ -7,20 +7,23 @@
     <div *ngIf="loggedInUsername; else loginRegister" (click)="toggleDropdown()">
       <div class="user-info">
         <span>{{ loggedInUsername }}</span>
-        <span >
-          <img class="cart-icon" src="../assets/icons/cart.png" alt="Carret">
+        <span class="cart-icon-container">
+          <img class="cart-icon" src="../assets/icons/cart.png" alt="Carret" (click)="toggleCartDropdown()">
+          <span class="cart-count">{{ cartCount }}</span>
+          <!-- Dropdown del carrito -->
+          <div class="cart-dropdown" [class.open]="showCartDropdown">
+            <ul>
+              <li *ngFor="let item of cartItems">
+                <span>{{ item.nombre }} - {{ item.precio }}&euro;</span>
+                <span class="delete-option" (click)="removeItemFromCart(item)">x</span> <!-- Icono 'x' para eliminar opción -->
+              </li>
+            </ul>
+            <button class="clear-cart-btn" (click)="clearCartAndCloseDropdown()">Buidar Cistella</button>
+          </div>
         </span>
         <span class="logout-icon" (click)="logout()">
           <img class="img-logout" src="../assets/icons/logout.png" alt="Sortir">
-        </span>      
-      </div>
-      <!-- Dropdown menu -->
-      <div *ngIf="showDropdown" class="dropdown-menu">
-        <ul>
-          <li>Option 1</li>
-          <li>Option 2</li>
-          <li (click)="logout()">Logout</li>
-        </ul>
+        </span>
       </div>
     </div>
     <!-- Si el usuario no está logueado, mostrar enlaces de login y register -->

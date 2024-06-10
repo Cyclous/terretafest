@@ -1,10 +1,10 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 .carousel-inner {
     height: 500px;
-  }
+}
   
-  /* styles.css */
+/* styles.css */
 .carousel-item img {
     max-height: 400px; /* Cambia el valor según lo que necesites */
-  }
-  
+}

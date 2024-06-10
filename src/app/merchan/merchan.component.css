@@ -1,64 +1,68 @@
 .merchan-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: transparent; /* Quita el fondo blanco */
-  }
-  
-  .producto {
-    flex: 0 0 calc(30% - 20px); 
-    padding: 10px;
-    margin-bottom: 20px;
-    color: white;
-  }
-  
-  .imagen {
-    position: relative;
-    max-width: 200px;
-  }
-  
-  .imagen img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  
-  .tipo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #007bff;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 0.8em;
-  }
-  
-  .detalles {
-    padding: 10px;
-  }
-  
-  .detalles h2 {
-    margin-top: 0;
-    font-size: 1.2em;
-  }
-  
-  .precio {
-    font-size: 1.1em;
-    font-weight: bold;
-  }
-  
-  .comprar-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .comprar-btn:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra los elementos en la línea */
+  background-color: transparent; /* Quita el fondo blanco */
+}
+
+.producto {
+  flex: 0 0 calc(33.333% - 40px); /* Cada producto ocupa 1/3 del contenedor menos el margen */
+  box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del elemento */
+  padding: 10px;
+  margin: 20px; /* Añade margen entre los productos */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido dentro de cada producto */
+}
+
+.imagen {
+  position: relative;
+  max-width: 200px;
+}
+
+.imagen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tipo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #007bff;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+.detalles {
+  padding: 10px;
+  text-align: center; /* Centra el texto dentro de la sección de detalles */
+}
+
+.detalles h2 {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+.precio {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.comprar-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comprar-btn:hover {
+  background-color: #0056b3;
+}
