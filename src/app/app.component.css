@@ -4,13 +4,18 @@
   align-items: center;
 }
 
+.terreta img {
+  max-width: auto;
+  height: auto;
+}
+
 .scroll-to-top {
   position: fixed;
   bottom: 40px;
   right: 20px;
   cursor: pointer;
-  width: 40px; /* Ajusta el tamaño según tus necesidades */
-  height: 40px; /* Ajusta el tamaño según tus necesidades */
+  width: 40px;
+  height: 40px;
 }
 
 .session {
@@ -24,13 +29,13 @@
   text-decoration: none;
   font-weight: bold;
   margin-left: 20px;
+  text-transform: uppercase;
 }
 
 .session a:hover {
   color: orange;
 }
 
-/* Estilos para el formulario emergente */
 .form-popup {
   position: absolute;
   top: 50px; 
@@ -39,10 +44,9 @@
   background-color: #f9f9f9;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Asegurarse de que esté sobre otros elementos */
+  z-index: 1000;
 }
 
-/* Estilos para el botón de cierre */
 .close-button {
   position: absolute;
   top: 5px;
@@ -54,15 +58,13 @@
   cursor: pointer;
 }
 
-/* Estilos para el contenedor del formulario */
 .form-container {
   max-width: 300px;
 }
 
-/* Estilos para los campos de entrada */
 .form-container input[type=text],
 .form-container input[type=password] {
-  width: 100%; /* Asegurar el 100% del contenedor */
+  width: 100%;
   padding: 12px;
   margin: 8px 0 20px 0;
   border: 2px solid #9ec5de;
@@ -71,14 +73,12 @@
   box-sizing: border-box;
 }
 
-/* Estilos cuando los campos de entrada están enfocados */
 .form-container input[type=text]:focus,
 .form-container input[type=password]:focus {
   background-color: #e8e8e8;
   outline: none;
 }
 
-/* Estilos para los botones */
 .form-container .btn {
   background-color: #9ec5de;
   color: white;
@@ -86,32 +86,29 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%; /* Asegurar el 100% del contenedor */
+  width: 100%;
   margin-bottom: 10px;
   opacity: 0.9;
 }
 
-/* Estilos para el botón de "Cancelar" */
 .form-container .cancel {
   background-color: #f44336;
 }
 
-/* Estilos para los botones cuando se pasan por encima */
 .form-container .btn:hover {
   opacity: 1;
 }
 
-/* Estilos para el dropdown menu */
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #f9f9f9;
-  border-radius: 10px; /* Añadir borde redondeado */
+  border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  width: 300px; /* Ancho del menú */
-  display: inline-block; /* Cambiado a inline-block */
+  width: 300px;
+  display: inline-block;
 }
 
 .dropdown-menu ul {
@@ -123,12 +120,12 @@
 .dropdown-menu ul li {
   padding: 10px;
   cursor: pointer;
-  border-radius: 5px; /* Añadir borde redondeado */
-  position: relative; /* Para la posición de la 'X' */
-  width: 100%; /* Ajustar el ancho */
-  display: flex; /* Para que el contenido se ajuste horizontalmente */
-  justify-content: space-between; /* Alinear 'X' a la derecha */
-  align-items: center; /* Alinear contenido verticalmente */
+  border-radius: 5px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dropdown-menu ul li:hover {
@@ -152,8 +149,8 @@
 }
 
 .user-info {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   color: white;
   gap: 10px;
 }
@@ -195,13 +192,13 @@
   border: 1px solid #ccc;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  display: none; /* Inicialmente oculto */
+  display: none;
   z-index: 1000;
   width: 300px;
 }
 
 .cart-dropdown.open {
-  display: block; /* Mostrar cuando está abierto */
+  display: block;
 }
 
 .cart-dropdown ul {
@@ -211,7 +208,7 @@
 }
 
 .cart-dropdown ul li {
-  color: black; /* Texto en negro */
+  color: black;
   padding: 10px;
   cursor: pointer;
 }
@@ -222,18 +219,18 @@
 
 .clear-cart-btn {
   width: 100%;
-  background-color: #007bff; /* Cambio de color */
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 8px 16px; /* Cambio de tamaño */
+  padding: 8px 16px;
   cursor: pointer;
   margin-top: 10px;
-  transition: background-color 0.3s ease; /* Transición suave */
+  transition: background-color 0.3s ease;
 }
 
 .clear-cart-btn:hover {
-  background-color: #0056b3; /* Cambio de color al pasar el mouse */
+  background-color: #0056b3;
 }
 
 .delete-option {
@@ -250,15 +247,88 @@
   cursor: pointer;
 }
 
-/* Añadir estilos para centrar contenido en pantallas pequeñas */
-@media (max-width: 430px) {
-  .navbar, .terreta, .session, .form-popup, .dropdown-menu, .user-info, .cart-icon-container, .cart-dropdown, .clear-cart-btn {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+a {
+  user-select: none !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease;
+}
+
+/* Ajustes para pantallas medianas (entre 992px y 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .terreta img {
+    max-width: 500px;
+    height: auto;
   }
 
-  .dropdown-menu ul li {
-    flex-direction: column; /* Ajustar la dirección del contenido */
+  .session {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 20px; /* Espacio entre el logo y el contenido */
+    text-align: center; /* Centra los enlaces */
+  }
+
+  .scroll-to-top {
+    bottom: 20px;
+  }
+
+  .form-popup {
+    top: 110px; /* Ajusta la posición del formulario emergente */
+    right: 50%; /* Centra el formulario */
+    transform: translateX(50%); /* Centra horizontalmente */
   }
 }
+
+/* Ajustes para pantallas pequeñas (entre 576px y 991px) */
+@media (min-width: 576px) and (max-width: 991px) {
+  .terreta img {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .session {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 20px; /* Espacio entre el logo y el contenido */
+    text-align: center; /* Centra los enlaces */
+  }
+
+  .scroll-to-top {
+    bottom: 20px;
+  }
+
+  .form-popup {
+    top: 110px; /* Ajusta la posición del formulario emergente */
+    right: 50%; /* Centra el formulario */
+    transform: translateX(50%); /* Centra horizontalmente */
+  }
+}
+
+/* Ajustes para pantallas extra pequeñas (hasta 575px) */
+@media (max-width: 575px) {
+  .terreta img {
+    max-width: 320px;
+    height: auto;
+  }
+
+  .session {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 20px; /* Espacio entre el logo y el contenido */
+    text-align: center; /* Centra los enlaces */
+  }
+
+  .scroll-to-top {
+    bottom: 20px;
+  }
+
+  .form-popup {
+    top: 110px; /* Ajusta la posición del formulario emergente */
+    right: 50%; /* Centra el formulario */
+    transform: translateX(50%); /* Centra horizontalmente */
+  }
+}
+

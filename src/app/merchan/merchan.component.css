@@ -66,3 +66,17 @@
 .comprar-btn:hover {
   background-color: #0056b3;
 }
+
+/* Estilos para pantallas medianas */
+@media (max-width: 992px) {
+  .producto {
+    flex: 0 0 calc(50% - 40px); 
+  }
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 576px) {
+  .producto {
+    flex: 0 0 calc(100% - 40px); 
+  }
+}

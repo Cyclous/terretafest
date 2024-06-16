@@ -1,7 +1,7 @@
 ngb-carousel .picsum-img-wrapper {
     position: relative;
     height: 0;
-    padding-top: 40%; /* Ajusta este valor para cambiar la altura relativa de las imágenes */
+    padding-top: 40%; 
   }
   
   ngb-carousel .picsum-img-wrapper > img {
@@ -10,14 +10,14 @@ ngb-carousel .picsum-img-wrapper {
     left: 0;
     bottom: 0;
     right: 0;
-    width: 70%; /* Ajusta este valor para cambiar el ancho relativo de las imágenes */
-    height: 100%; /* Asegura que la imagen ocupe todo el contenedor */
-    object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
-    margin: 0 auto; /* Centra las imágenes horizontalmente */
+    width: 70%; 
+    height: 100%; 
+    object-fit: cover; 
+    margin: 0 auto; 
   }
   
   .carousel-inner {
-    height: auto; /* Cambia esto si quieres que el contenedor tenga una altura fija */
+    height: auto; 
   }
   
   .carousel-control-prev {
@@ -54,7 +54,6 @@ ngb-carousel .picsum-img-wrapper {
     padding-top: 10rem;
   }
   
-  /* New CSS class for custom margin */
   .custom-carousel {
     margin-bottom: 50px;
   }

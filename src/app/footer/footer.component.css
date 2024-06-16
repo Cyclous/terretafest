@@ -2,6 +2,7 @@
   background-color: #333;
   color: white;
   padding: 20px 0;
+  border-radius: 8px;
 }
 
 .footer-content {
@@ -13,6 +14,7 @@
 
 .footer-links {
   text-align: center;
+  margin-top: 20px;
 }
 
 .footer-links a {
@@ -25,6 +27,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .logoTerreta {
@@ -37,4 +40,27 @@
   width: 30px;
   height: 30px;
   margin: 0 5px;
+}
+
+/* Ajustes para pantallas medianas (entre 768px y 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer-content {
+    margin: 0 20%;
+  }
+}
+
+/* Ajustes para pantallas pequeñas (hasta 767px) */
+@media (max-width: 767px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links {
+    margin-top: 10px;
+  }
+
+  .admin-logos {
+    margin-top: 10px;
+  }
 }

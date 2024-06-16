@@ -1,15 +1,15 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #drawer mode="side" opened="false" class="custom-sidenav">
-    <form [formGroup]="eventForm" class="event-form" (ngSubmit)="saveEvent()">
+    <form [formGroup]="eventForm" class="event-form" (ngSubmit)="onFinishCreating()">
       <div class="drawer-toolbar">
-        <span>Detalles del Evento</span>
+        <span>Detalls de l'event</span>
         <span class="spacer"></span>
         <button type="button" class="close-button" (click)="drawer.close()">×</button>
       </div>
 
       <div class="form-group">
         <label for="nombreEvento">Nom de l'event</label>
-        <input id="nombreEvento" formControlName="nombreEvento" type="text" placeholder="Nom de l'event">
+        <input id="nombreEvento" formControlName="nombreDelEvento" type="text" placeholder="Nom de l'event">
       </div>
 
       <div class="form-group">
@@ -19,12 +19,12 @@
 
       <div class="form-group">
         <label for="grupoMusica">Grup de música</label>
-        <input id="grupoMusica" formControlName="grupoMusica" type="text" placeholder="Grup de música">
+        <input id="grupoMusica" formControlName="grupoDeMusica" type="text" placeholder="Grup de música">
       </div>
 
       <div class="form-group">
         <label for="numeroEntradas">Nº Entrades</label>
-        <input id="numeroEntradas" formControlName="numeroEntradas" type="number" placeholder="Nº Entrades">
+        <input id="numeroEntradas" formControlName="numeroDeEntradas" type="number" placeholder="Nº Entrades">
       </div>
 
       <div class="form-group">
@@ -35,7 +35,9 @@
       <div class="form-group">
         <label for="fecha">Data</label>
         <input id="fecha" formControlName="fecha" type="date" placeholder="Data">
-      </div>      
+      </div>               
+
+
       <div class="button-container">
         <button type="submit" class="submit-button">Guardar</button>
       </div>
@@ -47,42 +49,46 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-lg-3" *ngFor="let item of displayedData" [ngClass]="{ 'past-event': isPastEvent(item.Fecha) }">
-          <div class="card">
-            <div *ngIf="isPastEvent(item.Fecha)" class="past-label">PASSAT</div>
-            <img class="card-img-top" [src]="item.Imagen" alt="Card image cap" />
+        <div class="col-md-6 col-lg-3" *ngFor="let item of displayedData" [ngClass]="{ 'past-event': isPastEvent(item.fecha) }">
+          <div class="card" [ngClass]="{ 'card-editing': editingEventId === item.id }">
+            <div *ngIf="isPastEvent(item.fecha)" class="past-label">PASSAT</div>
+            <img class="card-img-top" [src]="item.imagen" alt="Card image cap" />
           @if (editingEventId != item.id) {
             <div class="card-body">
-              <h5 class="card-title">{{ item['Nombre_del_Evento'] }}</h5>
-              <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ item.Ubicacion }}</p>
-              <p class="card-text"><i class="fas fa-euro-sign"></i> {{ item.Precio }}</p>
-              <p class="card-text"><i class="far fa-calendar-alt"></i> {{ item.Fecha }}</p>
-              <a *ngIf="!isPastEvent(item.Fecha)" class="card-link" [routerLink]="['/event', item.id]">Més info</a>
+              <h5 class="card-title">{{ item['nombreDelEvento'] }}</h5>
+              <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ item.ubicacion }}</p>
+              <p class="card-text"><i class="fas fa-euro-sign"></i> {{ item.precio }}</p>
+              <p class="card-text"><i class="far fa-calendar-alt"></i> {{ item.fecha }}</p>
+              <a *ngIf="!isPastEvent(item.fecha)" class="card-link" [routerLink]="['/event', item.id]">Més info</a>
               <div class="btn-container">
-                <button *ngIf="isPastEvent(item.Fecha)" class="btn btn-secondary" [routerLink]="['/galeria', item.id]">Galeria</button>
-                <button *ngIf="role_id === 1" class="btn btn-danger" (click)="deleteEvent(item.id)">Eliminar</button>
-                <button *ngIf="role_id === 1" class="btn btn-warning" (click)="startEditing(item)">Editar</button>
-              </div>
+                <button *ngIf="isPastEvent(item.fecha)" class="btn btn-secondary" [routerLink]="['/galeria', item.id]">
+                  Galería
+                </button>
+                <button *ngIf="role_id === 1" class="btn btn-danger" (click)="deleteEvent(item.id)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button *ngIf="role_id === 1" class="btn btn-warning" (click)="startEditing(item)">
+                  <i class="fas fa-edit"></i>
+                </button>
+              </div>              
             </div>
           }@else if (editingEventId == item.id) {
             <div class="card-body">
 
-              <form action="" [formGroup]="editForm" (ngSubmit)="onFinishEditing()">
-                
+              <form action="" [formGroup]="editForm" (ngSubmit)="onFinishEditing()" class="event-form">
                 <input type="text" formControlName="id" hidden>
-                <input type="text" formControlName="nombreEvento">
-                <input type="text" formControlName="ubicacion">
-                <input type="text" formControlName="grupoMusica">
-                <input type="text" formControlName="numeroEntradas">
-                <input type="text" formControlName="precio">
-                <input type="text" formControlName="fecha">
-
-                <div class="btn-container">
+                <input type="text" formControlName="nombreDelEvento" placeholder="Nombre del Evento">
+                <input type="text" formControlName="ubicacion" placeholder="Ubicación">
+                <input type="text" formControlName="grupoDeMusica" placeholder="Grupo de Música">
+                <input type="text" formControlName="numeroDeEntradas" placeholder="Número de Entradas">
+                <input type="text" formControlName="precio" placeholder="Precio">
+                <input type="text" formControlName="fecha" placeholder="Fecha">
+                <div class="btn-container-edit">
+                  <button class="cancel-button" type="button" (click)="onCancelEdit()">Cancelar</button>
                   <button class="confirm-button" type="submit">Confirmar</button>
-                  <button class="confirm-button" (click)="onCancelEdit()">Cancelar</button>
-
                 </div>
               </form>
+              
           
             </div>
           }

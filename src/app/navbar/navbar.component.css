@@ -7,6 +7,7 @@
   color: white;
   background-color: white;
   margin-bottom: 30px;
+  border-radius: 8px;
 }
 
 .links {
@@ -21,6 +22,10 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 30px;
+  user-select: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .links a:hover {
@@ -47,21 +52,6 @@
   }
 }
 
-/* Ajustes adicionales para pantallas de 768px de ancho o menos */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .links {
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    text-align: center;
-  }
-}
-
 /* Ajustes adicionales para pantallas de 576px de ancho o menos */
 @media (max-width: 576px) {
   .navbar {
@@ -82,4 +72,10 @@
     align-items: center;
     text-align: center;
   }
+}
+
+/* Estilos para centrar el navbar en la página */
+.container {
+  display: flex;
+  justify-content: center;
 }

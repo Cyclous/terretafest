@@ -1,0 +1,5 @@
+# Redirect API requests to AWS ALB
+/api/*  http://terretafest-lb-951655689.us-east-1.elb.amazonaws.com/:splat  200
+
+# Redirect all routes to index.html
+/*    /index.html   200

@@ -34,10 +34,10 @@ export class EventsComponent implements OnInit {
   itemsPerPage: number = 4;
   currentEvent: Event = {
     id: 0,
-    Nombre_del_Evento: "",
-    Ubicacion: "",
-    Grupo_de_Musica: "",
-    Informacion: ""
+    nombreDelEvento: "",
+    ubicacion: "",
+    grupoDeMusica: "",
+    informacion: ""
   } ;
   editingEventId: number | null = null;
   role_id: number = 0; // Declare role_id
@@ -55,10 +55,10 @@ export class EventsComponent implements OnInit {
 
 
     this.eventForm = this.fb.group({
-      nombreEvento: [''],
+      nombreDelEvento: [''], 
       ubicacion: [''],
-      grupoMusica: [''],
-      numeroEntradas: [''],
+      grupoDeMusica: [''],
+      numeroDeEntradas: [''],
       precio: [''],
       fecha: ['']
     });
@@ -66,21 +66,25 @@ export class EventsComponent implements OnInit {
 
      this.editForm = this.fb.group({
       id:[''],
-      nombreEvento: [''],
+      nombreDelEvento: [''], 
       ubicacion: [''],
-      grupoMusica: [''],
-      numeroEntradas: [''],
+      grupoDeMusica: [''],
+      numeroDeEntradas: [''],
       precio: [''],
       fecha: ['']
     });
 
     this.role_id = this.sessionService.getRoleId() || 0; // Get role_id from SessionService
+    
+    this.loadEvents();
+  }
+
+  loadEvents(){
     this.http.get(this.url +'/eventos').subscribe((data) => {
       this.data = data;
       this.displayedData = this.data.slice(0, this.itemsPerPage);
     });
   }
-
   loadMore(): void {
     const startIndex = this.displayedData.length;
     const endIndex = Math.min(startIndex + this.itemsPerPage, this.data.length);
@@ -110,32 +114,22 @@ export class EventsComponent implements OnInit {
     return event < currentDate;
   }
 
+  onFinishCreating(){
+    if(this.eventForm.valid){
+      this.currentEvent = this.eventForm.value
+      this.saveEvent();
+    }
+  }
+
   startEditing(event: any): void {
     this.editingEventId = event.id;
     this.currentEvent = { ...event };
-    this.editForm.patchValue({
-      id:this.currentEvent.id,
-      nombreEvento: this.currentEvent.Nombre_del_Evento,
-      ubicacion: this.currentEvent.Ubicacion,
-      grupoMusica: this.currentEvent.Grupo_de_Musica,
-      numeroEntradas: this.currentEvent.N_de_Entradas,
-      precio: this.currentEvent.Precio,
-      fecha: this.currentEvent.Fecha
-    })
+    this.editForm.patchValue({...this.currentEvent})
   }
-
   
   onFinishEditing() {
     if(this.editForm.valid){
-      this.currentEvent={
-        id:this.editForm.get("id")?.value,
-        Nombre_del_Evento:this.editForm.get("nombreEvento")?.value,
-        Ubicacion:this.editForm.get("ubicacion")?.value,
-        Grupo_de_Musica:this.editForm.get("grupoMusica")?.value,
-        N_de_Entradas:this.editForm.get("numeroEntradas")?.value,
-        Precio:this.editForm.get("precio")?.value,
-        Fecha:this.editForm.get("fecha")?.value
-      }
+      this.currentEvent=this.editForm.value
      this.saveEvent();
     }
   }
@@ -159,16 +153,15 @@ export class EventsComponent implements OnInit {
         this.editingEventId = null;
       });
     } else {
-      this.http.post(this.url + 'eventos', this.currentEvent).subscribe((newEvent: any) => {
-        this.data.push(newEvent);
-        this.displayedData = this.data.slice(0, this.itemsPerPage);
+      this.http.post(this.url + '/eventos', this.currentEvent).subscribe(() => {
+        this.loadEvents()
       });
     }
     this.closeEventDrawer();
   }
 
   confirmDeleteEvent(event: any): void {
-    if (confirm(`¿Estás seguro de que deseas eliminar el evento "${event.Nombre_del_Evento}"?`)) {
+    if (confirm(`¿Estás seguro de que deseas eliminar el evento "${event.nombreDelEvento}"?`)) {
       this.deleteEvent(event.id);
     }
   }
@@ -186,6 +179,6 @@ export class EventsComponent implements OnInit {
   
   // Método para cerrar el drawer
   closeEventDrawer(): void {
-    this.isDrawerOpened = false;
+    this.drawer.close();
   }
 }
