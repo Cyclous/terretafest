@@ -11,6 +11,7 @@ import { CartService } from './cart.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { GoogleMap } from '@angular/google-maps';
+import { cami } from './config';
 
 interface LoginData {
   email: string;
@@ -39,7 +40,7 @@ interface LoginResponse {
   ],
 })
 export class AppComponent implements OnInit {
-  API_URL = 'http://127.0.0.1:5000'; // Declare API_URL as a class property
+  API_URL = cami.cami;
 
   formData: { email: string, password: string } = { email: '', password: '' };
   formDataRegister: { username: string, email: string, password: string, confirmPassword: string } = { username: '', email: '', password: '', confirmPassword: '' };

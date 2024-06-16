@@ -51,16 +51,41 @@
           <div class="card">
             <div *ngIf="isPastEvent(item.Fecha)" class="past-label">PASSAT</div>
             <img class="card-img-top" [src]="item.Imagen" alt="Card image cap" />
+          @if (editingEventId != item.id) {
             <div class="card-body">
               <h5 class="card-title">{{ item['Nombre_del_Evento'] }}</h5>
               <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ item.Ubicacion }}</p>
               <p class="card-text"><i class="fas fa-euro-sign"></i> {{ item.Precio }}</p>
               <p class="card-text"><i class="far fa-calendar-alt"></i> {{ item.Fecha }}</p>
               <a *ngIf="!isPastEvent(item.Fecha)" class="card-link" [routerLink]="['/event', item.id]">Més info</a>
-              <button *ngIf="isPastEvent(item.Fecha)" class="btn btn-secondary" [routerLink]="['/galeria', item.id]">Galeria</button>
-              <button *ngIf="role_id === 1" class="btn btn-danger" (click)="deleteEvent(item.id)">Eliminar</button>
-              <button *ngIf="role_id === 1" class="btn btn-warning" (click)="startEditing(item)">Editar</button>
+              <div class="btn-container">
+                <button *ngIf="isPastEvent(item.Fecha)" class="btn btn-secondary" [routerLink]="['/galeria', item.id]">Galeria</button>
+                <button *ngIf="role_id === 1" class="btn btn-danger" (click)="deleteEvent(item.id)">Eliminar</button>
+                <button *ngIf="role_id === 1" class="btn btn-warning" (click)="startEditing(item)">Editar</button>
+              </div>
             </div>
+          }@else if (editingEventId == item.id) {
+            <div class="card-body">
+
+              <form action="" [formGroup]="editForm" (ngSubmit)="onFinishEditing()">
+                
+                <input type="text" formControlName="id" hidden>
+                <input type="text" formControlName="nombreEvento">
+                <input type="text" formControlName="ubicacion">
+                <input type="text" formControlName="grupoMusica">
+                <input type="text" formControlName="numeroEntradas">
+                <input type="text" formControlName="precio">
+                <input type="text" formControlName="fecha">
+
+                <div class="btn-container">
+                  <button class="confirm-button" type="submit">Confirmar</button>
+                  <button class="confirm-button" (click)="onCancelEdit()">Cancelar</button>
+
+                </div>
+              </form>
+          
+            </div>
+          }
           </div>
         </div>
       </div>

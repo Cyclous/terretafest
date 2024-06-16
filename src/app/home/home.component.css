@@ -24,7 +24,7 @@ html, body {
 .col-md-6, .col-lg-4 {
   flex: 0 0 calc(33.33% - 20px);
   max-width: calc(33.33% - 20px);
-  margin: 10px; /* Ajuste para mantener el espacio alrededor de las tarjetas */
+  margin: 10px;
 }
 
 .card {
@@ -32,6 +32,7 @@ html, body {
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .card-img-top {
@@ -77,4 +78,38 @@ html, body {
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
+}
+
+/* Para pantallas medianas y pequeñas */
+@media (max-width: 992px) {
+  .col-md-6, .col-lg-4 {
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 576px) {
+  .col-md-6, .col-lg-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  /* Centrado adicional para pantallas muy pequeñas */
+  .container, .row, .col-md-6, .col-lg-4 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-body {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }

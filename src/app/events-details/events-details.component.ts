@@ -4,8 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { cami } from '../config';
 
-interface Event {
+export interface Event {
   id: number;
   Nombre_del_Evento: string;
   Ubicacion: string;
@@ -14,7 +15,7 @@ interface Event {
   Precio?: number;
   Imagen?: string;
   Fecha?: string;
-  Informacion: string;
+  Informacion?: string;
   Coordenadas?: {
     latitud: number;
     longitud: number;
@@ -39,6 +40,7 @@ export class EventsDetailsComponent implements OnInit {
   Fecha: string = '';
   Informacion: string = '';
   Coordenadas: { latitud: number; longitud: number } = { latitud: 0, longitud: 0 };
+  url = cami.cami;
 
   constructor(
     private route: ActivatedRoute,
@@ -50,7 +52,7 @@ export class EventsDetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = params['id'];
 
-      this.http.get<Event[]>('http://localhost:5000/eventos').subscribe(data => {
+      this.http.get<Event[]>(this.url + '/eventos').subscribe(data => {
         const selectedEvent = data.find(event => event.id === +this.id);
         if (selectedEvent) {
           this.Nombre_del_Evento = selectedEvent.Nombre_del_Evento;
@@ -60,7 +62,7 @@ export class EventsDetailsComponent implements OnInit {
           this.Precio = selectedEvent.Precio || 0;
           this.Imagen = selectedEvent.Imagen || '';
           this.Fecha = selectedEvent.Fecha || '';
-          this.Informacion = selectedEvent.Informacion;
+          this.Informacion = selectedEvent.Informacion || '';
           this.Coordenadas = selectedEvent.Coordenadas || { latitud: 0, longitud: 0 };
         } 
       });

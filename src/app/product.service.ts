@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { cami } from './config';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private apiUrl = 'http://localhost:5000/productos'; // URL del endpoint de Flask
+  private apiUrl = cami.cami + '/productos'; // URL del endpoint de Flask
 
   constructor(private http: HttpClient) { }
 

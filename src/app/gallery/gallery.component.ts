@@ -1,39 +1,32 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ViewChild } from '@angular/core';
-import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core';
+import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-gallery',
-  standalone:true,
-  imports:[CommonModule,NgbCarouselModule],
+  standalone: true,
+  imports: [NgbCarouselModule, CommonModule],
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  styleUrls: ['./gallery.component.css'],
+  providers: [NgbCarouselConfig]
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent {
+  images = [
+    { url: '../assets/images/galeria/1.jpg' },
+    { url: '../assets/images/galeria/2.jpg' },
+    { url: '../assets/images/galeria/3.jpg' },
+    { url: '../assets/images/galeria/4.jpg' },
+    { url: '../assets/images/galeria/5.jpg' },
+    { url: '../assets/images/galeria/6.jpg' },
+    { url: '../assets/images/galeria/7.jpg' },
+    { url: '../assets/images/galeria/8.jpg' },
+    { url: '../assets/images/galeria/9.jpg' }
+  ];
 
-  @ViewChild('carousel') carousel!: NgbCarousel; 
-
-  eventId: number | null = null;
-  images: string[] = [];
-
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-
-
-    console.log("gallery inciado")
-    this.eventId = this.route.snapshot.paramMap.get('id') ? Number(this.route.snapshot.paramMap.get('id')) : null;
-
-    if (this.eventId) {
-      this.loadImages();
-    }
-  }
-
-  loadImages(): void {
-    for (let i = 1; i <= 10; i++) {
-      this.images.push(`../assets/images/galeria/${i}.jpg`);
-    }
+  constructor(config: NgbCarouselConfig) {
+    config.interval = 2000;
+    config.wrap = true;
+    config.keyboard = true;
+    config.pauseOnHover = false;
   }
 }

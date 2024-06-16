@@ -55,3 +55,19 @@ margin-left: 350px;}
 .social-links:hover{
   text-decoration: underline;
 }
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+  .news-container {
+    width: 100%; /* Ocupar todo el ancho */
+    padding: 10px; /* Reducir el padding */
+  }
+
+  .news-title {
+    font-size: 30px; /* Reducir el tamaño del título */
+  }
+
+  .news-image {
+    width: 80%; /* Reducir el tamaño de la imagen */
+  }
+}

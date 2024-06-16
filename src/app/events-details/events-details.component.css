@@ -2,14 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60%;
-  
-
+  height: 100%; /* Cambiado el alto al 100% */
 }
 
 .event-details {
-  max-width: 600px;
-  width: 60%;
+  max-width: 80%; /* Cambiado el ancho al 80% */
+  width: 100%; /* Asegurar que ocupe todo el ancho del contenedor */
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -63,4 +61,42 @@
 .info p {
   margin-top: 10px;
   color: #555;
+}
+
+.map-container {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  margin-top: 20px;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 992px) {
+  .event-details {
+    max-width: 90%; /* Reducir el ancho */
+  }
+
+  .event-info h2 {
+    font-size: 20px; /* Reducir el tamaño del título */
+  }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+  .event-details {
+    max-width: 100%; /* Ocupar todo el ancho */
+    padding: 10px; /* Reducir el padding */
+  }
+
+  .event-info h2 {
+    font-size: 18px; /* Reducir el tamaño del título */
+  }
 }

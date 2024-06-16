@@ -26,3 +26,60 @@
 .links a:hover {
   color: orange;
 }
+
+/* Ajustes para pantallas de 987px de ancho o menos */
+@media (max-width: 987px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-brand {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* Ajustes adicionales para pantallas de 768px de ancho o menos */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Ajustes adicionales para pantallas de 576px de ancho o menos */
+@media (max-width: 576px) {
+  .navbar {
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .navbar-brand {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* Estilos para centrar el contenido en pantallas pequeñas */
+@media (max-width: 430px) {
+  .navbar, .links {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}

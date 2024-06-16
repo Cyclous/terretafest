@@ -1,10 +1,61 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
-
-.carousel-inner {
-    height: 500px;
-}
+ngb-carousel .picsum-img-wrapper {
+    position: relative;
+    height: 0;
+    padding-top: 40%; /* Ajusta este valor para cambiar la altura relativa de las imágenes */
+  }
   
-/* styles.css */
-.carousel-item img {
-    max-height: 400px; /* Cambia el valor según lo que necesites */
-}
+  ngb-carousel .picsum-img-wrapper > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 70%; /* Ajusta este valor para cambiar el ancho relativo de las imágenes */
+    height: 100%; /* Asegura que la imagen ocupe todo el contenedor */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+    margin: 0 auto; /* Centra las imágenes horizontalmente */
+  }
+  
+  .carousel-inner {
+    height: auto; /* Cambia esto si quieres que el contenedor tenga una altura fija */
+  }
+  
+  .carousel-control-prev {
+    left: 0;
+  }
+  
+  .header {
+    width: 100%;
+    display: flex;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -5.5rem;
+    padding: 2rem;
+    justify-content: space-between;
+  }
+  
+  .carousel-caption {
+    width: 30rem;
+    position: absolute;
+    right: 15%;
+    bottom: 17rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 4.25rem;
+  }
+  
+  .carousel-caption h2 {
+    font-size: 3.25rem;
+    padding-top: 10rem;
+  }
+  
+  /* New CSS class for custom margin */
+  .custom-carousel {
+    margin-bottom: 50px;
+  }
+  

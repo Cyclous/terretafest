@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { cami } from '../config';
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -18,6 +18,7 @@ export class ContactComponent implements OnInit {
   mensaje: string = '';
   privacyPolicyAccepted: boolean = false;
   isFormSubmitted: boolean = false;
+  url = cami.cami;
 
   // Texto de la política de privacidad en valenciano
   privacyPolicyText: string = `TerretaFest valora i respecta la privadesa dels seus usuaris. Totes les dades recopilades a través d'aquest formulari s'utilitzen únicament per respondre a les vostres consultes i no es comparteixen amb tercers sense el vostre consentiment explícit. En proporcionar la vostra informació de contacte, accepteu que TerretaFest puga utilitzar-la per respondre a la vostra consulta.
@@ -96,7 +97,7 @@ export class ContactComponent implements OnInit {
       mensaje: this.mensaje
     };
 
-    this.http.post('http://localhost:5000/enviar-correo', formData)
+    this.http.post(this.url + 'enviar-correo', formData)
       .subscribe((response: any) => {
         console.log('Correu enviat exitosament:', response);
         // Restablecer los campos del formulario

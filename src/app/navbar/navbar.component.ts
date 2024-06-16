@@ -38,10 +38,6 @@ export class NavbarComponent implements OnInit {
       }
   }
   
-  gallery(): void {
-    this.router.navigate(['/galeria']);
-  }
-
   about(): void {
     this.router.navigate(['/about']);
   }
